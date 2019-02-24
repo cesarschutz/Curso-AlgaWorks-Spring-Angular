@@ -2,8 +2,6 @@ package com.algamoney.api.exceptionHandler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +17,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
 @ControllerAdvice
 public class AlgaMoneyExceptionHanlder extends ResponseEntityExceptionHandler {
@@ -35,40 +30,10 @@ public class AlgaMoneyExceptionHanlder extends ResponseEntityExceptionHandler {
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		String mensagemUsuario = "Campo não reconhecido: ";
-		
-		if(ex.getCause() instanceof UnrecognizedPropertyException) {
-			UnrecognizedPropertyException cause = (UnrecognizedPropertyException) ex.getCause();
-			
-			mensagemUsuario += cause.getPropertyName();
-			
-			Collection<Object> _propertyIds = cause.getKnownPropertyIds();
-			 StringBuilder sb = new StringBuilder(100);
-	            int len = _propertyIds.size();
-	            if (len == 1) {
-	                sb.append(" (1 propriedade conhecida: '");
-	                sb.append(String.valueOf(_propertyIds.iterator().next()));
-	            } else {
-	                sb.append(" (").append(len).append(" Propriedades conhecidas: [");
-	                Iterator<Object> it = _propertyIds.iterator();
-	                while (it.hasNext()) {
-	                    sb.append(String.valueOf(it.next()));
-	                    if (it.hasNext()) {
-	                        sb.append(", ");
-	                    }
-	                }
-	                sb.append("])");
-	            }
-	            
-	            mensagemUsuario += sb.toString();
-		} else {
-			mensagemUsuario = ex.toString();
-		}
-		
-		
-		String mensagemDesenvolvedor = ex.toString();
+		String mensagemUsuario = messageSource.getMessage("mensagem.invalida", null, LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.getCause() != null ? ex.getCause().toString() : ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
-		return super.handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
+		return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
 	}
 	
 	@Override
