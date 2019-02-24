@@ -41,7 +41,8 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/{codigo}")
-	public Categoria buscar(@PathVariable Long codigo){
-		return categoriaRepository.findOne(codigo);
+	public ResponseEntity<?> buscar(@PathVariable Long codigo){
+		Categoria categoria = categoriaRepository.findOne(codigo);
+		return categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.noContent().build();
 	}
 }
