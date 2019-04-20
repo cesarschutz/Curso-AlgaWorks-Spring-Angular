@@ -30,9 +30,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			//escopos conseguindo limitar o acesso desse cliente (dessa aplicação angular que estamos liberando)
 			.scopes("read", "write")
 			//fluxo que iremos utilizar (angular recebe usuario e senha e o angular chama aqui para pegar o token)
-			.authorizedGrantTypes("password")
+			.authorizedGrantTypes("password", "refresh_token")
 			//quantos segundos o token fica ativo
-			.accessTokenValiditySeconds(1800);
+			.accessTokenValiditySeconds(20)
+			//tempo de vida do refresh token
+			.refreshTokenValiditySeconds(3600 * 24);
 	}
 	
 	@Override
