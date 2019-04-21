@@ -32,7 +32,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			//fluxo que iremos utilizar (angular recebe usuario e senha e o angular chama aqui para pegar o token)
 			.authorizedGrantTypes("password", "refresh_token")
 			//quantos segundos o token fica ativo
-			.accessTokenValiditySeconds(20)
+			.accessTokenValiditySeconds(3600)
 			//tempo de vida do refresh token
 			.refreshTokenValiditySeconds(3600 * 24);
 	}
