@@ -34,6 +34,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			//quantos segundos o token fica ativo
 			.accessTokenValiditySeconds(3600)
 			//tempo de vida do refresh token
+			.refreshTokenValiditySeconds(3600 * 24)
+		.and()
+			.withClient("mobile")
+			.secret("m0b1l30")
+			.scopes("read")
+			.authorizedGrantTypes("password", "refresh_token")
+			.accessTokenValiditySeconds(1800)
 			.refreshTokenValiditySeconds(3600 * 24);
 	}
 	
