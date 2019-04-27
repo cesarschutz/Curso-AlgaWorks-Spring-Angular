@@ -6,3 +6,48 @@
 .navbar-toggle {
   color: #fff
 }
+
+.navbar-menu {
+  /*fixa o elemento para mesmo que tenha scroll na pagina ele fique fixo*/
+  position: fixed;
+
+  /*fixa em cima em baixo e na esquerda*/
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  /* tira as bolinhas de uma <li> */
+  list-style: none;
+
+  z-index: 9999;
+  margin:0;
+  width: 210px;
+  background-color: lightslategray;
+  padding: 0;
+}
+
+.navbar-usuario {
+  padding: 15px;
+  border-bottom: 1px solid #525151;
+  margin-bottom: 15px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-menuitem {
+  padding: 15px;
+}
+
+/* Estilizando o elemento a que é filho do navbar-menuitem */
+.navbar-menuitem a {
+  color: #c0bbb7;
+
+  /* limpa a linha de baixo do link */
+  text-decoration: none;
+}
+
+/* para pintar de branco quando passamos o mouse por cima */
+.navbar-menuitem a:hover {
+  color: white;
+}
