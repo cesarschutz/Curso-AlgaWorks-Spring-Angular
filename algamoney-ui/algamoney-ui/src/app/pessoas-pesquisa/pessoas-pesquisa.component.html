@@ -6,11 +6,13 @@
 
       <div class="ui-g-12 ui-fluid">
         <label>Nome</label>
-        <input pInputText appCampoColorido [cor]="'yellow'" type="text">
+        <input pInputText type="text" appCampoColorido [cor]="'yellow'" #campo="campoColorido">
       </div>
 
-      <div class="ui-g-12">
+      <div class="ui-g-12 ">
         <button pButton type="submit" label="Pesquisar"></button>
+        <button pButton class="btn btn-info" label="Colorir" (click)="campo.colorir()" style="margin-left: 5px; margin-right: 5px;"></button>
+        <button pButton class="btn btn-info" label="Descolorir" (click)="campo.descolorir()"></button>
       </div>
     </div>
 
