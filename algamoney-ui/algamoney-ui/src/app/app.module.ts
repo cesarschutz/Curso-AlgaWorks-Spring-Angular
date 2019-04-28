@@ -19,6 +19,9 @@ import { CampoColoridoDirective } from './campo-colorido.directive';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import {InputMaskModule} from 'primeng/inputmask';
+import { FormsModule } from '@angular/forms';
+import {MessageModule} from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     ButtonModule,
     InputTextModule,
     TableModule,
@@ -41,7 +45,9 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    InputMaskModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
