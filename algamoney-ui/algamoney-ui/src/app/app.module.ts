@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
@@ -33,7 +34,8 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     TableModule,
     TooltipModule,
     InputTextareaModule,
-    CalendarModule
+    CalendarModule,
+    SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
