@@ -5,21 +5,17 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MessageComponent } from './message/message.component';
-import {MessageModule} from 'primeng/message';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    MessageComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     LancamentosModule,
-    PossoasModule,
-    MessageModule
+    PossoasModule
   ],
   providers: [],
   bootstrap: [AppComponent]

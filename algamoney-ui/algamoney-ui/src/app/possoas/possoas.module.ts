@@ -1,3 +1,4 @@
+import { SharedModule } from '../shared/shared.module';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CampoColoridoDirective } from './campo-colorido.directive';
@@ -25,7 +26,8 @@ import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
     TableModule,
     TooltipModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    SharedModule
   ],
   exports: [
     PessoaCadastroComponent,
