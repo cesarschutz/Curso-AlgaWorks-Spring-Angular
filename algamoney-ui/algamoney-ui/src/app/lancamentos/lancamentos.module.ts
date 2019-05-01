@@ -1,4 +1,3 @@
-import { MessageModule } from 'primeng/message';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { DropdownModule } from 'primeng/dropdown';
@@ -35,7 +34,6 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     DropdownModule,
     CurrencyMaskModule,
     InputMaskModule,
-    MessageModule
   ],
   exports: [
     LancamentosPesquisaComponent,
