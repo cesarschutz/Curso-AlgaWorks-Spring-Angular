@@ -7,10 +7,12 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LancamentoService } from './lancamentos/lancamento.service';
+import { InclusaoBoletagemComponent } from './inclusao-boletagem/inclusao-boletagem.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InclusaoBoletagemComponent
   ],
   imports: [
     BrowserModule,
