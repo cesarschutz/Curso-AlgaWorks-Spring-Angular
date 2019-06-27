@@ -8,11 +8,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LancamentoService } from './lancamentos/lancamento.service';
 import { InclusaoBoletagemComponent } from './inclusao-boletagem/inclusao-boletagem.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TesteReactiveFormsComponent } from './teste-reactive-forms/teste-reactive-forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InclusaoBoletagemComponent
+    InclusaoBoletagemComponent,
+    TesteReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { InclusaoBoletagemComponent } from './inclusao-boletagem/inclusao-boleta
     LancamentosModule,
     PossoasModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [LancamentoService],
   bootstrap: [AppComponent]
