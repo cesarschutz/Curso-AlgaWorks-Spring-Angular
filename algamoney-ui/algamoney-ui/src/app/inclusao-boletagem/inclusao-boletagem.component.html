@@ -1,0 +1,68 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  
+  
+  <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">INCLUSÃO DE BOLETAGEM</div>
+        <div class="panel-body">
+
+
+
+
+
+            <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="form-group">
+
+                    
+                    <label for="cliente">Cliente</label>
+                    <select class="form-control" formControlName="cliente">
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+
+
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-group">
+                  
+                  
+                    <label for="gerente">Gerente</label>
+                    <input class="form-control" formControlName="gerente">
+                    
+                    <div *ngIf="!gerente.pristine && gerente.errors">
+                      <p *ngIf="gerente.errors.required" class="valid-tooltip">
+                          gerente é obrigatório.
+                      </p>
+                      <p *ngIf="gerente.errors.minlength">
+                          gerente deve ter no mínimo 3 caracters.
+                      </p>
+                      <p *ngIf="gerente.errors.maxlength">
+                          gerente deve ter no máximo 100 caracters.
+                      </p>
+                    </div>
+                  
+                  
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary"[disabled]="!formularioDeUsuario.valid">Enviar dados</button>
+            </form>
+
+
+
+
+
+        </div>
+      </div>
+  </div> 
