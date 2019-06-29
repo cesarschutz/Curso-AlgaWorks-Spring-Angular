@@ -8,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterOperationComponent implements OnInit {
 
   operation: Operation;
+  listClients: Array<Client> = new Array();
 
   constructor() {
     this.operation = new Operation();
+
+    let client = new Client();
+    client.id = 1;
+    client.name = "cliente 1";
+    this.listClients.push(client);
+
+    let client2 = new Client();
+    client2.id = 2;
+    client2.name = "cliente 2";
+    this.listClients.push(client2);
+
+    this.operation.client = client2;
   }
 
   ngOnInit() {
@@ -25,10 +38,12 @@ export class RegisterOperationComponent implements OnInit {
 
 export class Operation {
   id: Number;
-  client: {
-    id: Number;
-    name: String;
-  };
+  client: Client = new Client();
   manager: String;
   status: String;
+}
+
+export class Client {
+  id: Number;
+  name: String;
 }
