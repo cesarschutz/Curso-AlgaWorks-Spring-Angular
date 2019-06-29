@@ -15,10 +15,10 @@
       <td>{{operation.manager}}</td>
       <td>{{operation.status}}</td>
       <td>
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit" class="btn btn-primary" (click)="openOperation(operation)">Edit</button>
       </td>
     </tr>
   </tbody>
 </table>
 
-<button type="submit" class="btn btn-primary">New</button>
+<button type="submit" class="btn btn-primary" (click)="openOperation()">New</button>

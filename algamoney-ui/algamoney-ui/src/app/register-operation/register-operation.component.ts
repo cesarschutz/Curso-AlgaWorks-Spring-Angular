@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-operation',
@@ -10,23 +11,30 @@ export class RegisterOperationComponent implements OnInit {
   operation: Operation;
   listClients: Array<Client> = new Array();
 
-  constructor() {
-    this.operation = new Operation();
-
+  constructor(private router: Router) {
+    //carrega clientes combobox
     let client = new Client();
     client.id = 1;
-    client.name = "cliente 1";
+    client.name = "client 1";
     this.listClients.push(client);
-
     let client2 = new Client();
     client2.id = 2;
-    client2.name = "cliente 2";
+    client2.name = "client 2";
     this.listClients.push(client2);
 
-    this.operation.client = client2;
+    this.loadOperationParam();
   }
 
   ngOnInit() {
+    
+  }
+
+  loadOperationParam() {
+    //load operation
+    debugger;
+    const nav = this.router.getCurrentNavigation();
+    let operationParam = nav.extras.state.operation;
+    this.operation = operationParam ? operationParam : new Operation();
   }
 
   register(){

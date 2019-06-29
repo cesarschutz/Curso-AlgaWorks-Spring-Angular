@@ -12,6 +12,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TesteReactiveFormsComponent } from './teste-reactive-forms/teste-reactive-forms.component';
 import { RegisterOperationComponent } from './register-operation/register-operation.component';
 import { ListOperationsComponent } from './list-operations/list-operations.component';
+import { AppRoutingModule } from 'src/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ListOperationsComponent } from './list-operations/list-operations.compo
     CoreModule,
     HttpClientModule,
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [LancamentoService],
   bootstrap: [AppComponent]

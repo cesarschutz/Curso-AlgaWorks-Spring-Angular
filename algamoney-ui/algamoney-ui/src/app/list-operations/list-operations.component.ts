@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Operation } from '../register-operation/register-operation.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-operations',
@@ -10,7 +11,7 @@ export class ListOperationsComponent implements OnInit {
 
   listOperations: Array<Operation> = new Array();
 
-  constructor() {
+  constructor(private router: Router) {
     let operation = new Operation();
     operation.id = 1;
     operation.manager = "manger 1";
@@ -31,4 +32,9 @@ export class ListOperationsComponent implements OnInit {
     console.log(this.listOperations);
   }
 
+  openOperation(operation){
+    this.router.navigateByUrl('/register-operation', {
+      state: { operation: operation }
+    });   
+  }
 }
